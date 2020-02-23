@@ -25,23 +25,22 @@ with open(csvpath, newline = "") as csvfile:
         total_votes += 1
 
         #check dictionary to find candidate's name:
-            #if entry exists, add one in order to count votes
-            #------------------------------------------------
-            #if not, set value to one in order to
-            #add the name to the dictionary
+        #(if entry exists, add one in order to count votes
+        # if not, set value to one in order to
+        # add the name to the dictionary)
         if row[2] in candidate_dict:
             candidate_dict[row[2]] += 1
         else:
             candidate_dict[row[2]] = 1
 
-#format output/print
+#format output/print to terminal
 print("")
 print("")
 print("Election Results")
 print("-" * 25)
 print(f"Total Votes: {total_votes}")
 print("-" * 25)
-#finding/printing winner, winning percentage, and number of votes
+#finding/printing to terminal: winner, winning percentage, and number of votes
 for candidate, votes in candidate_dict.items():
     if votes > winner_votes:
         winner = candidate
@@ -54,17 +53,19 @@ print("-" * 25)
 print("")
 print("")    
 
+#create text file
 filename = "election_analysis.txt"
 with open(filename, 'w') as file_object:
     file_object.write("")
 
+#append additional information to text file
 filename = "election_analysis.txt"
 with open(filename, 'a') as file_object:
     file_object.write("Election Results\n")
     file_object.write("-" * 25)
     file_object.write(f"\nTotal Votes: {total_votes}\n")
     file_object.write("-" * 25)
-    #finding/printing winner, winning percentage, and number of votes
+    #finding/printing to text file: winner, winning percentage, and number of votes
     for candidate, votes in candidate_dict.items():
         if votes > winner_votes:
             winner = candidate
