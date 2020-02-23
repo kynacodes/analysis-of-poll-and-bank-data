@@ -17,24 +17,20 @@ with open(csvpath, newline = "") as csvfile:
     #skip header row
     next(csvreader)
 
-    #count number of months (1 month per line)
-    total_months = 0
-
     #variables
+    total_months = 0
     earnings = 0
-
     previous_month_earnings = 0
     current_month_earnings = 0
-    
     greatest_increase_date = ""
     greatest_decrease_date = ""
-
     greatest_increase = 0
     greatest_decrease = 0
-
     cumulative_change = 0
     
+    #loop through file
     for row in csvreader:
+        
         #sum months
         total_months += 1
 
